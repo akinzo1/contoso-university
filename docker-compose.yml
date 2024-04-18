@@ -1,0 +1,29 @@
+version: '3.4'
+
+
+networks:
+    contosoappnetwork:
+services:
+  Kinzo:
+    container_name: contoso-db
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+    - 8002:1433
+    environment: 
+    -   ACCEPT_EULA=Y
+    -   SA_PASSWORD=@dweffF34Wsd
+    networks:
+    - contosoappnetwork
+  contosouniversity.web:
+    container_name: contoso-app
+    image: ${DOCKER_REGISTRY-}contosouniversityweb
+    build:
+      context: .
+      dockerfile: ContosoUniversity.Web/Dockerfile
+    ports:
+    - 8001:80
+    depends_on:
+    - Kinzo
+    networks:
+    - contosoappnetwork
+  
