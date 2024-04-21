@@ -11,9 +11,3 @@ phases:
     build:
         commands:
             - ./push-image.sh
-            
-artifacts:
-  files:
-    - AspNetCoreWebApplication/build_output/**/*
-    - scripts/**/*
-    - appspec.yml
