@@ -54,7 +54,8 @@ namespace ContosoUniversity
 
         public void Configure(IApplicationBuilder app,
             IHostingEnvironment env,
-            ILoggerFactory loggerFactory)
+            ILoggerFactory loggerFactory,
+            IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
