@@ -26,7 +26,7 @@ namespace ContosoUniversity.Data
             }
             else
             {
-                builder.UseSqlServer(config.GetConnectionString("DefaultConnection"), x => x.MigrationsHistoryTable("Migration", "Contoso"));
+                builder.UseSqlServer("Server=contoso.cdbrcyuyp22p.us-east-1.rds.amazonaws.com;Database=ContosoUniversity2017;User=admin;password=AZ4jqjSenJKNCjWX2ngt;MultipleActiveResultSets=true", x => x.MigrationsHistoryTable("Migration", "Contoso"));
             }
             return new ApplicationContext(builder.Options);
         }

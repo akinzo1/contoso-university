@@ -46,7 +46,7 @@ namespace ContosoUniversity.Api
         {
             if (CurrentEnvironment.IsDevelopment())
             {
-                dbInitializer.Initialize();
+                //dbInitializer.Initialize();
                 app.UseDeveloperExceptionPage();
             }
             // else
@@ -66,7 +66,7 @@ namespace ContosoUniversity.Api
 
         public void ConfigureTesting(IApplicationBuilder app, IDbInitializer dbInitializer)
         {
-            dbInitializer.Initialize();
+            //dbInitializer.Initialize();
             app.UseAuthentication()
                 // .UseRewriter(new RewriteOptions().AddRedirectToHttps())
                 .UseMvcWithDefaultRoute();

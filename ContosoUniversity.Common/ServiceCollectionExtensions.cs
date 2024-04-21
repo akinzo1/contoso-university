@@ -49,17 +49,18 @@ namespace ContosoUniversity.Common
                 {
                     services.AddDbContext<ApplicationContext>(
                         options => options.UseSqlServer(
-                            configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsHistoryTable("Migration", "Contoso")));
+                            "Server=contoso.cdbrcyuyp22p.us-east-1.rds.amazonaws.com;Database=ContosoUniversity2017;User=admin;password=AZ4jqjSenJKNCjWX2ngt;MultipleActiveResultSets=true", x => x.MigrationsHistoryTable("Migration", "Contoso")));
 
+                    Console.WriteLine($"AKINAKINAKINAKIN   -   {configuration.GetConnectionString("DefaultConnection")}");
                     services.AddDbContext<SecureApplicationContext>(
                         options => options.UseSqlServer(
-                            configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsHistoryTable("IdentityMigration", "Contoso")));
+                            "Server=contoso.cdbrcyuyp22p.us-east-1.rds.amazonaws.com;Database=ContosoUniversity2017;User=admin;password=AZ4jqjSenJKNCjWX2ngt;MultipleActiveResultSets=true", x => x.MigrationsHistoryTable("IdentityMigration", "Contoso")));
                     services.AddDbContext<WebContext>(
                         options => options.UseSqlServer(
-                            configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsHistoryTable("IdentityMigration", "Contoso")));
+                            "Server=contoso.cdbrcyuyp22p.us-east-1.rds.amazonaws.com;Database=ContosoUniversity2017;User=admin;password=AZ4jqjSenJKNCjWX2ngt;MultipleActiveResultSets=true", x => x.MigrationsHistoryTable("IdentityMigration", "Contoso")));
                     services.AddDbContext<ApiContext>(
                         options => options.UseSqlServer(
-                            configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsHistoryTable("IdentityMigration", "Contoso")));
+                            "Server=contoso.cdbrcyuyp22p.us-east-1.rds.amazonaws.com;Database=ContosoUniversity2017;User=admin;password=AZ4jqjSenJKNCjWX2ngt;MultipleActiveResultSets=true", x => x.MigrationsHistoryTable("IdentityMigration", "Contoso")));
                 }
             }
 
@@ -112,9 +113,9 @@ namespace ContosoUniversity.Common
             });
 
             // Admin account will be added to identity db when created.
-            var administrator = configuration.GetSection("Administrator");
-            if (env.IsDevelopment() && administrator.Exists())
-                services.Configure<AdminIdentityOptions>(administrator);
+            //var administrator = configuration.GetSection("Administrator");
+            //if (env.IsDevelopment() && administrator.Exists())
+            //    services.Configure<AdminIdentityOptions>(administrator);
 
             return services;
         }

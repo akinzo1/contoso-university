@@ -25,7 +25,7 @@ namespace ContosoUniversity.Data.DbContexts
             }
             else
             {
-                builder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+                builder.UseSqlServer("Server=contoso.cdbrcyuyp22p.us-east-1.rds.amazonaws.com;Database=ContosoUniversity2017;User=admin;password=AZ4jqjSenJKNCjWX2ngt;MultipleActiveResultSets=true");
 
             }
             return new SecureApplicationContext(builder.Options);

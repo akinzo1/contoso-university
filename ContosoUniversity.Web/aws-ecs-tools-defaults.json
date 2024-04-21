@@ -1,0 +1,24 @@
+
+{
+    "region" : "us-east-1",
+    "profile" : "akin",
+    "configuration" : "Release",
+    "image-tag"     : "contosouniversity:latest",
+    "docker-build-working-dir" : "",
+    "vstoolkit-deployment-mode" : "RunTask",
+    "task-definition-name"      : "aveevacontosonoseed",
+    "task-cpu"                  : "1024",
+    "task-memory"               : "2048",
+    "platform-version"          : "LATEST",
+    "task-definition-task-role" : "arn:aws:iam::127275507218:role/ecsTaskExecutionRole",
+    "task-execution-role"       : "ecsTaskExecutionRole",
+    "container-name"            : "aveevacontosonoseed",
+    "container-port-mapping"    : "",
+    "container-environment-variables" : "",
+    "cluster"                         : "contosouni",
+    "launch-type"                     : "FARGATE",
+    "launch-subnets"                  : "subnet-15fd7f38,subnet-67265b2e,subnet-c7ec6b9c,subnet-f9bbda9c,subnet-5ad57266,subnet-1879fa14",
+    "launch-security-groups"          : "sg-a3cfb2de",
+    "assign-public-ip"                : true,
+    "task-count"                      : 1
+}

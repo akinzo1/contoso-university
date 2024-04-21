@@ -9,6 +9,7 @@ using ContosoUniversity.Web.Helpers;
 using ContosoUniversity.Common.Data;
 using ContosoUniversity.Common.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 
 namespace ContosoUniversity
 {
@@ -39,7 +40,10 @@ namespace ContosoUniversity
             services.AddScoped<IModelBindingHelperAdaptor, DefaultModelBindingHelaperAdaptor>();
             services.AddScoped<IUrlHelperAdaptor, UrlHelperAdaptor>();
             services.AddSingleton<IConfiguration>(Configuration);
-
+            services.AddAntiforgery(options =>
+            {
+                options.Cookie.SameSite = SameSiteMode.None;
+            });
             // Call to change httpsport or redirect status code.
             // services.AddHttpsRedirection(options =>
             // {
@@ -50,13 +54,12 @@ namespace ContosoUniversity
 
         public void Configure(IApplicationBuilder app,
             IHostingEnvironment env,
-            ILoggerFactory loggerFactory,
-            IDbInitializer dbInitializer)
+            ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                dbInitializer.Initialize();
+                //dbInitializer.Initialize();
             }
             else if (env.IsProduction())
             {

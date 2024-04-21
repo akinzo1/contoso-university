@@ -43,4 +43,7 @@
   <ItemGroup>
     <Content Update="appsettings*.json" CopyToPublishDirectory="Never" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="..\.dockerignore" />
+  </ItemGroup>
 </Project>
