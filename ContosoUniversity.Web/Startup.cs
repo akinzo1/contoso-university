@@ -59,7 +59,7 @@ namespace ContosoUniversity
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //dbInitializer.Initialize();
+                dbInitializer.Initialize();
             }
             else if (env.IsProduction())
             {

@@ -31,13 +31,13 @@ namespace ContosoUniversity.Common.Data
         private void InitializeContext()
         {
             // create database schema if it does not exist
-            //if (_context.Database.EnsureCreated())
-            //{
-            //    _logger.LogInformation("Creating database schema...");
-            //}
-            //var unitOfWork = new UnitOfWork<ApiContext>(_context);
-            //var seedData = new SeedData<ApiContext>(_logger, unitOfWork, _data);
-            //seedData.Initialize();
+            if (_context.Database.EnsureCreated())
+            {
+                _logger.LogInformation("Creating database schema...");
+            }
+            var unitOfWork = new UnitOfWork<ApiContext>(_context);
+            var seedData = new SeedData<ApiContext>(_logger, unitOfWork, _data);
+            seedData.Initialize();
         }
     }
 }
