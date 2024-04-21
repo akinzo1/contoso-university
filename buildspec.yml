@@ -11,3 +11,9 @@ phases:
     build:
         commands:
             - ./push-image.sh
+    post_build:
+        commands:
+          - printf '[{"name":"aveevacontosonoseed","imageUri":"%s"}]' 127275507218.dkr.ecr.us-east-1.amazonaws.com/contosouniversity:latest > imagedefinitions.json
+
+artifacts:
+  files: imagedefinitions.json
