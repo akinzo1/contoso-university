@@ -40,10 +40,8 @@ namespace ContosoUniversity
             services.AddScoped<IModelBindingHelperAdaptor, DefaultModelBindingHelaperAdaptor>();
             services.AddScoped<IUrlHelperAdaptor, UrlHelperAdaptor>();
             services.AddSingleton<IConfiguration>(Configuration);
-            services.AddAntiforgery(options =>
-            {
-                options.Cookie.SameSite = SameSiteMode.None;
-            });
+            
+
             // Call to change httpsport or redirect status code.
             // services.AddHttpsRedirection(options =>
             // {
